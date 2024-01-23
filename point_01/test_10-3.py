@@ -31,16 +31,15 @@ def extract_corners(image_path, threshold_value=10, epsilon_factor=0.04):
     return corners
 
 # 調用函數取得角點座標
-corners = extract_corners('data/7.jpg')
+corners = extract_corners('data/6.jpg')
 #print(corners)
 
 # 顯示結果
-image = cv2.imread('data/7.jpg')
+image = cv2.imread('data/6.jpg')
 for corner in corners:
     x, y = corner
     cv2.circle(image, (x, y), 15, (0, 255, 0), -1)
     print(f"({x}, {y})")
 
-plt.imshow(image, cmap='gray')
-plt.title('Image with Corners')
+plt.subplot(111), plt.axis('off'), plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)), plt.title('Image with Corners')
 plt.show()
